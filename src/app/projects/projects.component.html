@@ -1,0 +1,6 @@
+<div class="ingjam-container">
+    @for(project of ingjamProjects; track project.id)
+    {
+        <ij-project-card [project]="project"></ij-project-card>
+    }
+</div>

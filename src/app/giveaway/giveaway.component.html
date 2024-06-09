@@ -1,0 +1,30 @@
+<div class="giveaway-container">
+	<h3 class="mb-5">Giveaway Generator</h3>
+
+	<img [src]="configuration.currentImage" alt="Random Image"
+		[ngClass]="winnerFound ? 'image-border-y' : 'image-border-w'">
+
+	<button (click)="startPicking()" class="btn btn-success">Start</button>
+
+	<div class="winner-container" [ngStyle]="{'visibility': winnerFound ? 'visible' : 'hidden'}">
+		<p>🎉 &nbsp; Wohoo! &nbsp; 🎉</p>
+		<p>We have a winner!</p>
+		<a [href]="configuration.userLink" target="_blank">Contact</a>
+	</div>
+</div>
+
+<div class="configuration-container">
+	<form [formGroup]="configurationForm" class="configuration-form">
+		<label for="currentImage">Current Image: </label>
+		<input id="currentImage" type="text" formControlName="currentImage">
+		<label for="imageCount">Image Count: </label>
+		<input id="imageCount" type="text" formControlName="imageCount">
+		<label for="startSpeed">Start Speed: </label>
+		<input id="startSpeed" type="text" formControlName="startSpeed">
+		<label for="speedDelay">Speed Delay: </label>
+		<input id="speedDelay" type="text" formControlName="speedDelay">
+		<label for="accumulatorLimit">Accumulator Limit: </label>
+		<input id="accumulatorLimit" type="text" formControlName="accumulatorLimit">
+		<button (click)="setConfiguration()">Set Configuration</button>
+	</form>
+</div>
